@@ -11,6 +11,3 @@ def solution(A, K):
     else:
         return A
     pass
-
-
-print(solution([3, 8, 9, 7, 6], 3))
