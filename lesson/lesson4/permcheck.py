@@ -1,7 +1,7 @@
 def solution(A):
     # write your code in Python 2.7
     len_a = len(A)
-    a = [0] * len_a
+    a = [False] * len_a
     for n in range(len_a):
         if A[n] > len_a:
             return 0
