@@ -4,6 +4,7 @@
 // you can write to stdout for debugging purposes, e.g.
 // cout << "this is a debug message" << endl;
 #include<stack>
+#include<vector>
 using namespace std;
     int solution(vector<int> &H){
     stack<int> st;
