@@ -8,33 +8,35 @@
 #include<stack>
 using namespace std;
 int solution(vector<int> &A){
-    stack<int> stk;
-    int leader = -1;
+    int size = 0;
+    int last = -1;
     int pos = -1;
     int count = 0;
     for(int i = 0;i < A.size();i++){
-        if(!stk.empty() && A[i] != stk.top()){
-            stk.pop();
+        if(size == 0){
+            last = A[i];
+            size = 1;
         }
-        else if(stk.empty() || (!stk.empty() && A[i] == stk.top())){
-            stk.push(A[i]);
+        else{
+            if(A[i] != last){
+                size -= 1;
+            }
+            else{
+                size ++;
+            }
         }
     }
-
-    if(stk.size() >= 1){
-        leader = stk.top();
-    }
-    else{
+    if(size == 0){
         return -1;
     }
     for(int i = 0;i < A.size();i++){
-        if(A[i] == leader){
+        if(A[i] == last){
             pos = i;
             count ++;
         }
     }
     if(count > A.size() / 2){
-        return pos;
+        return pos; 
     }
     else{
         return -1;
