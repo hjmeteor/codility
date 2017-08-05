@@ -9,6 +9,8 @@
         "xhash": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp"
     }
 }
