@@ -9,14 +9,15 @@ int solution(vector<int> &A) {
     if(A.empty()){
         return 0;
     }
-    int start = A[0];
+    int maxstock = 0, minstock = A[0];
+    int qp = 0;
+    int result = 0;
     for(int i = 0; i < A.size(); i++){
-        A[i] = A[i] - start;
+        if(A[i] > minstock){
+            qp = A[i] - minstock;
+            result = max(result, qp);
+        }
+        minstock = min(minstock, A[i]);
     }
-    int max_ending, max_slice = 0;
-    for(int i = 0; i < A.size();i++){
-        max_ending = max(0, max_ending + A[i]);
-        max_slice = max(max_slice, max_ending);
-    }
-    return max_slice;
+    return result;
 }
